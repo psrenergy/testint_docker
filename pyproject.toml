@@ -1,0 +1,40 @@
+[build-system]
+requires      = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name            = "test"
+description     = "testing self hosted runner"
+readme          = "README.md"
+requires-python = ">=3.7, <4"
+classifiers = [
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+]
+dependencies = [
+    "toml>=0.10.2",
+    "GitPython>=3.1.29",
+    "codetiming>=1.4.0",
+    "slack_sdk>=3.20.2",
+    "slack>=0.0.2",
+    "certifi>=2022.12.7",
+    "aiohttp>=3.8.4"
+]
+dynamic = ["version"]
+# keywords = ["one", "two"]
+# license = {text = "BSD 3-Clause License"}
+
+
+[project.optional-dependencies]
+lint = ["flake8>=6.0"]
+test = ["pytest>=7.2", "pytest-cov", "pytest-mock>=3.10"]
+dev  = ["flake8>=6.0", "pytest>=7.2", "pytest-cov", "pytest-mock>=3.10"]
+
+
+# ... other project metadata fields as specified in:
+#     https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
