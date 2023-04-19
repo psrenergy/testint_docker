@@ -4,7 +4,8 @@ on:
 jobs:
   unit-tests:
     name: Testrunner unit tests
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+    container: node:14.16
     steps:
       - uses: actions/checkout@v3
       - name: Setup Python # Set Python version
