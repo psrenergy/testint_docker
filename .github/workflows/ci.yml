@@ -5,16 +5,12 @@ jobs:
   unit-tests:
     name: Testrunner unit tests
     runs-on: ubuntu-latest
-    container: node:14.16
     steps:
       - uses: actions/checkout@v3
       - name: Setup Python # Set Python version
-        uses: actions/setup-python@v4
+        uses: docker://python:3.11
         with:
-          python-version: '3.11'
-      - name: Install [dev] dependencies (testrunner, pytest, flake8)
-        run: |
-          python -m pip install .[dev]
-      - name: Test with pytest
-        run: |
-          python3 -m pytest
+          args: |
+            /bin/sh -c "
+            pip install .[dev] &&
+            python -m pytest"
